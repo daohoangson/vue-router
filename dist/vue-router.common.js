@@ -1,5 +1,5 @@
 /**
-  * vue-router v2.5.3
+  * vue-router v2.5.3-daohoangson
   * (c) 2017 Evan You
   * @license MIT
   */
@@ -2194,9 +2194,11 @@ function pushHash (path) {
 }
 
 function replaceHash (path) {
-  var i = window.location.href.indexOf('#');
+  var href = window.location.href;
+  var i = href.indexOf('#');
+
   window.location.replace(
-    window.location.href.slice(0, i >= 0 ? i : 0) + '#' + path
+    window.location.href.slice(0, i >= 0 ? i : href.length) + '#' + path
   );
 }
 
@@ -2457,7 +2459,7 @@ function createHref (base, fullPath, mode) {
 }
 
 VueRouter.install = install;
-VueRouter.version = '2.5.3';
+VueRouter.version = '2.5.3-daohoangson';
 
 if (inBrowser && window.Vue) {
   window.Vue.use(VueRouter);
